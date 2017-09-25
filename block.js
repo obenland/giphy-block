@@ -69,7 +69,7 @@
 		title: __( 'Giphy', 'giphy-block' ),
 		category: 'embed',
 		save: function save() {
-			return null;
+			return wp.element.createElement( 'img', { src: "https://media.giphy.com/media/l46C8VoCqphm8QPOU/giphy.gif" } );
 		},
 	} );
 
