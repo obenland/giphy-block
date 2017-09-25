@@ -69,6 +69,7 @@
 		title: __( 'Giphy', 'giphy-block' ),
 		category: 'embed',
 		icon: 'format-image',
+		keywords: [ 'gif', 'image', 'meme' ],
 		save: function save() {
 			return wp.element.createElement( 'img', { src: "https://media.giphy.com/media/l46C8VoCqphm8QPOU/giphy.gif" } );
 		},
