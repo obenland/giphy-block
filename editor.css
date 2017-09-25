@@ -1,0 +1,22 @@
+.gutenberg .giphy__results {
+	width: 100%;
+}
+
+.gutenberg .giphy__results ul {
+	list-style-type: none;
+	margin-top: 1em;
+}
+
+.gutenberg  .giphy__results li {
+	display: inline-block;
+	padding-right: 1em;
+	cursor: pointer;
+}
+
+.giphy__placeholder .components-placeholder__fieldset {
+	max-width: 100%;
+}
+
+.giphy__placeholder .components-placeholder__fieldset input {
+	width: 60%;
+}
