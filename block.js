@@ -82,11 +82,20 @@
 		edit: function edit( props ) {
 			var attributes = props.attributes;
 
-			return wp.element.createElement( 'img', { src: "https://media.giphy.com/media/l46C8VoCqphm8QPOU/giphy.gif" } );
+			if ( attributes.url ) {
+				return wp.element.createElement( 'img', { src: attributes.url } );
+			} else {
+				// Fetch gifs.
+				return null;
+			}
 		},
 
-		save: function save() {
-			return wp.element.createElement( 'img', { src: "https://media.giphy.com/media/l46C8VoCqphm8QPOU/giphy.gif" } );
+		save: function save( props ) {
+			if ( props.attributes.url ) {
+				return wp.element.createElement( 'img', { src: props.attributes.url } );
+			}
+
+			return null;
 		},
 	} );
 
