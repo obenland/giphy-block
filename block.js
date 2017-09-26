@@ -86,7 +86,11 @@
 				return wp.element.createElement( 'img', { src: attributes.url } );
 			} else {
 				// Fetch gifs.
-				return null;
+				return wp.components.Placeholder( {
+					className: 'giphy__placeholder',
+					icon: 'format-image',
+					label: __( 'Search for the perfect GIF!', 'giphy-block' ),
+				} );
 			}
 		},
 
