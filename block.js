@@ -64,6 +64,13 @@
 					} );
 				}
 
+				// If there is a giphy request happening, lets show a spinner.
+				if ( ! results.length && attributes.fetching ) {
+					results = wp.element.createElement( 'li', {
+						key: 'loading'
+					}, wp.components.Spinner( { key: 'loading' } ) );
+				}
+
 				return wp.components.Placeholder( {
 					className: 'giphy__placeholder',
 					icon: 'format-image',
