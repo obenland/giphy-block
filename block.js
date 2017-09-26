@@ -2,26 +2,6 @@
 	var GIPHY_URL = 'https://api.giphy.com/v1/gifs/search?api_key=Fswo3IBHt0TViFMN6zYgbYzSEb3sLx7I&limit=10&offset=0&rating=G&lang=en&q=';
 	var __ = wp.i18n.__;
 
-	/* For later use.
-
-	function mapSearchResults( gif ) {
-		var gifImage = wp.element.createElement( 'img', {
-			key: gif.id + '-img',
-			src: gif.images.fixed_height_small.url,
-		} );
-
-		return wp.element.createElement( 'li', {
-			key: gif.id,
-			onClick: function onClickFetchedGif() {
-				props.setAttributes( {
-					url: gif.images.original.url
-				} );
-			}
-		}, gifImage );
-	}
-
-	*/
-
 	wp.blocks.registerBlockType( 'giphy/giphy', {
 		title: __( 'Giphy', 'giphy-block' ),
 		category: 'embed',
@@ -64,7 +44,26 @@
 			if ( attributes.url ) {
 				return wp.element.createElement( 'img', { src: attributes.url } );
 			} else {
-				// Fetch gifs.
+
+				// If there are results, create thumbnails to select from.
+				if ( attributes.matches && attributes.matches.length ) {
+					results = _.map( attributes.matches, function mapSearchResults( gif ) {
+						var gifImage = wp.element.createElement( 'img', {
+							key: gif.id + '-img',
+							src: gif.images.fixed_height_small.url,
+						} );
+
+						return wp.element.createElement( 'li', {
+							key: gif.id,
+							onClick: function onClickFetchedGif() {
+								props.setAttributes( {
+									url: gif.images.original.url
+								} );
+							}
+						}, gifImage );
+					} );
+				}
+
 				return wp.components.Placeholder( {
 					className: 'giphy__placeholder',
 					icon: 'format-image',
