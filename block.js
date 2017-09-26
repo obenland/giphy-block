@@ -73,6 +73,18 @@
 		attributes: {
 			url: { type: 'string' },
 		},
+
+		/**
+		 * Renders block in editor.
+		 *
+		 * @param {object} props Block properties.
+		 */
+		edit: function edit( props ) {
+			var attributes = props.attributes;
+
+			return wp.element.createElement( 'img', { src: "https://media.giphy.com/media/l46C8VoCqphm8QPOU/giphy.gif" } );
+		},
+
 		save: function save() {
 			return wp.element.createElement( 'img', { src: "https://media.giphy.com/media/l46C8VoCqphm8QPOU/giphy.gif" } );
 		},
